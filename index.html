@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>ROCK PAPER SCISSOR</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700;800&family=Inter:wght@300;400;600&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <h1 id="heading">ROCK PAPER SCISSOR</h1>
+    <main>
+      <!-- Play area: scoreboard, hands, controls (keeps hands centered between score and start) -->
+      <div class="play-area">
+        <!-- Scoreboard -->
+        <div id="scoreboard" aria-label="Scoreboard">
+          <div class="score-col">
+            <div class="score-label">Me</div>
+            <div class="score-value" id="score-me">0</div>
+          </div>
+          <div class="score-sep" style="color: black">vs</div>
+          <div class="score-col">
+            <div class="score-label">Computer</div>
+            <div class="score-value" id="score-computer">0</div>
+          </div>
+        </div>
+
+        <div class="hands">
+          <div id="hand1">
+            <img src="rock.png" id="img1" alt="player hand" />
+          </div>
+          <div id="hand2">
+            <img src="rock.png" id="img2" alt="computer hand" />
+          </div>
+        </div>
+
+        <div id="game-buttons">
+          <button
+            type="button"
+            onclick="game(0)"
+            id="rock"
+            aria-label="Choose rock"
+          >
+            ROCK
+          </button>
+          <button
+            type="button"
+            onclick="game(1)"
+            id="paper"
+            aria-label="Choose paper"
+          >
+            PAPER
+          </button>
+          <button
+            type="button"
+            onclick="game(2)"
+            id="scissors"
+            aria-label="Choose scissors"
+          >
+            SCISSOR
+          </button>
+        </div>
+
+        <div style="text-align: center">
+          <button
+            type="button"
+            onclick="start()"
+            id="start"
+            aria-label="Start game"
+          >
+            START
+          </button>
+        </div>
+      </div>
+
+      <!-- Result box (placed below hands and start button per request) -->
+      <div id="resultBox" role="status" aria-live="polite"></div>
+
+      <div style="text-align: center; margin-top: 12px">
+        <button
+          type="button"
+          id="continue"
+          onclick="continueRound()"
+          aria-label="Continue to next round"
+        >
+          CONTINUE
+        </button>
+      </div>
+
+      <!-- Instructions / Game details -->
+      <div class="info-wrap">
+        <div class="info-box">
+          <h3>How to play</h3>
+          <p>
+            Start a match by clicking <strong class="emph">START</strong>. Then
+            pick <strong>ROCK</strong>, <strong>PAPER</strong>, or
+            <strong>SCISSOR</strong>. The computer will reveal its choice and
+            the winner of that round earns one point.
+          </p>
+          <p class="callout">
+            <strong>Match format:</strong> First to
+            <span class="score-target">3</span> points wins the match.
+          </p>
+          <p class="tip">
+            After a decisive round (non-draw) the result will remain visible
+            until you click <strong>CONTINUE</strong>. Draws automatically
+            proceed to the next round.
+          </p>
+        </div>
+        <details class="game-details" open>
+          <summary>Game Details</summary>
+          <ul>
+            <li>Rock beats Scissors</li>
+            <li>Paper beats Rock</li>
+            <li>Scissors beats Paper</li>
+            <li>Match draw awards no points</li>
+          </ul>
+        </details>
+      </div>
+    </main>
+    <script src="script.js"></script>
+  </body>
+</html>
